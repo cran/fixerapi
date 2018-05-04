@@ -12,6 +12,7 @@
 #' @param start_date The start date of requested time period.
 #' @param end_date The end date of requested time period.
 #' @inheritParams fixer_latest
+#' @seealso fixer_time_series
 #'
 #' @return A tibble with the currency symbol, start rate, end rate, change and
 #' change percentage over the requested time period. Each currency is given its
@@ -31,7 +32,7 @@ fixer_fluctuation <- function(start_date, end_date,
                               base = "EUR", symbols = NULL) {
   date_check(start_date, end_date)
 
-  base_query <- base_util(base)
+  base_query <- paste0("&base=", base)
 
   symbols_query <- symbols_util(symbols)
 

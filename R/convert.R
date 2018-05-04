@@ -2,7 +2,10 @@
 
 #' Convert currencies
 #'
-#' Currency conversion is only available on paid plans.
+#' @description Convert from one currency to another, on a given date or
+#' using the latest available exchange rates.
+#'
+#' @description Currency conversion is available on paid plans.
 #'
 #' @param from Symbol of currency to convert from.
 #' @param to Symbol of currency to convert to.
@@ -28,11 +31,11 @@ fixer_convert <- function(from, to, amount = 1, date = NULL) {
     )
   }
 
-  date <- ifelse(is.null(date), "", paste0("&date=", as.Date(date)))
+  date_query <- ifelse(is.null(date), "", paste0("&date=", as.Date(date)))
 
   query <- paste0(
     fixer_url, "convert?access_key=", fixer_api_key(),
-    "&from", from, "&to", to, "&amount", amount
+    "&from=", from, "&to=", to, "&amount=", amount, date_query
   )
 
   df <- jsonlite::fromJSON(query)
