@@ -10,8 +10,10 @@
 #' @description Time series data is only available for "Professional",
 #' "Professional Plus" and "Enterprise" accounts.
 #'
-#' @param start_date The start date of requested time series.
-#' @param end_date The end date of requested time series.
+#' @param start_date The start date of requested time series, in "YYYY-MM-DD"
+#' style, or any style convertable to  "YYYY-MM-DD" using \code{as.Date()}.
+#' @param end_date The end date of requested time series, in "YYYY-MM-DD"
+#' style, or any style convertable to  "YYYY-MM-DD" using \code{as.Date()}.
 #' @inheritParams fixer_latest
 #' @seealso fixer_fluctuation
 #'
@@ -28,7 +30,7 @@
 
 fixer_time_series <- function(start_date, end_date,
                               base = "EUR", symbols = NULL) {
-  date_check(start_date, end_date)
+  date_query <- date_check(start_date, end_date)
 
   base_query <- paste0("&base=", base)
 

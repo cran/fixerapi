@@ -7,9 +7,11 @@
 fixer_time_series(start_date, end_date, base = "EUR", symbols = NULL)
 }
 \arguments{
-\item{start_date}{The start date of requested time series.}
+\item{start_date}{The start date of requested time series, in "YYYY-MM-DD"
+style, or any style convertable to  "YYYY-MM-DD" using \code{as.Date()}.}
 
-\item{end_date}{The end date of requested time series.}
+\item{end_date}{The end date of requested time series, in "YYYY-MM-DD"
+style, or any style convertable to  "YYYY-MM-DD" using \code{as.Date()}.}
 
 \item{base}{The base currency to index other currencies against. Defaults
 to \code{"EUR"}. Other base currencies are only available on paid plans.}

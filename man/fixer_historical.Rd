@@ -12,23 +12,17 @@ to YYYY-MM-DD format with \code{as.Date()}. Defaults to \code{NULL}, which
 returns the latest conversion data.}
 
 \item{base}{The base currency to index other currencies against.
-Defaults to \code{"EUR"}. See \code{\link{fixer_symbols}} for details on
-symbol options.}
+Defaults to \code{"EUR"}. Can only be changed with paid plans.}
 
-\item{symbols}{A character vector of the symbols of currencies to return
-exchange rates for, or a string for a single currency. Defaults to
-\code{NULL} and returns all available currencies. See
+\item{symbols}{The symbols of currencies to return exchange rates for.
+Defaults to \code{NULL} and returns all available currencies. See
 \code{\link{fixer_symbols}} for details on symbol options.}
 }
 \value{
 A tibble with exchange rates to the base currency on a given date.
 }
 \description{
-Return currency exchange rates for a given date,
-from 1999 to the present.
-
-Historical exchange rates are available on all paid
-'fixer.io' accounts.
+Historical exchange rates are only available on paid fixer.io accounts.
 }
 \examples{
 \dontrun{

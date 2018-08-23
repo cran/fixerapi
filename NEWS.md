@@ -1,3 +1,18 @@
+
+# fixerapi 0.1.6
+
+* Fixed #1, where `ifelse()` stripping attributes from variables caused errors
+  in `fixer_historical()`.
+
+* Added error messages to `fixer_convert()` for amounts >=100,000 and <=0.
+
+* Added conversion from UNIX time to yyyy-mm-dd HH:mm:ss for `fixer_convert()`.
+
+* Improved date handling in `fixer_fluctuation()` and `fixer_time_series()`.
+
+* Increased test scenarios.
+
+
 # fixerapi 0.1.5
 
 * Fixed bug with `fixer_convert()` data parameter.

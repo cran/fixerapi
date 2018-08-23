@@ -2,19 +2,16 @@
 
 #' Historic exchange rates
 #'
-#' @description Return currency exchange rates for a given date,
-#' from 1999 to the present.
-#'
-#' @description Historical exchange rates are available on all paid
-#' 'fixer.io' accounts.
+#' Historical exchange rates are only available on paid fixer.io accounts.
 #'
 #' @param date A date in YYYY-MM-DD format, or any value that can be coerced
 #' to YYYY-MM-DD format with \code{as.Date()}. Defaults to \code{NULL}, which
 #' returns the latest conversion data.
 #' @param base The base currency to index other currencies against.
-#' Defaults to \code{"EUR"}. See \code{\link{fixer_symbols}} for details on
-#' symbol options.
-#' @inheritParams fixer_latest
+#' Defaults to \code{"EUR"}. Can only be changed with paid plans.
+#' @param symbols The symbols of currencies to return exchange rates for.
+#' Defaults to \code{NULL} and returns all available currencies. See
+#' \code{\link{fixer_symbols}} for details on symbol options.
 #'
 #' @return A tibble with exchange rates to the base currency on a given date.
 #' @export
@@ -26,7 +23,7 @@
 #' }
 
 fixer_historical <- function(date = NULL, base = "EUR", symbols = NULL) {
-  date_query <- ifelse(is.null(date), "latest", as.Date(date))
+  date_query <- ifelse(is.null(date), "latest", as.character(date))
 
   base_query <- paste0("&base=", base)
 
